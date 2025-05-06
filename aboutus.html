@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+
+
+
+        .options a {
+  text-decoration: none;
+  color: black;
+}
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #3498db;
+        }
+        
+        .hero {
+            background-color:#dec3a6;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        .about-section {
+            padding: 80px 0;
+            
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            display: block;
+            width: 50%;
+            height: 3px;
+            background-color: #3498db;
+            margin: 15px auto 0;
+        }
+        
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-text p {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .about-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .values {
+            background-color:#dec3a6;
+            padding: 80px 0;
+        }
+        
+        .values-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        
+        .value-card {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            flex: 1;
+            min-width: 250px;
+            max-width: 350px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .value-icon {
+            font-size: 2.5rem;
+            color: #3498db;
+            margin-bottom: 20px;
+        }
+        
+        .value-card h3 {
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-size: 1.5rem;
+        }
+        
+        .team {
+            padding: 80px 0;
+        }
+        
+        .team-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        
+        .team-member {
+            flex: 1;
+            min-width: 220px;
+            max-width: 280px;
+            text-align: center;
+        }
+        
+        .member-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .member-info h3 {
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-size: 1.3rem;
+        }
+        
+        .member-info p {
+            color: #7f8c8d;
+            margin-bottom: 15px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: #2c3e50;
+        }
+        
+        .cta {
+            background-color:#dec3a6;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: white;
+            color: #3498db;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #2c3e50;
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        footer {
+            background-color:#2c3e50;
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #3498db;
+        }
+        
+        .footer-column p {
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            color: #3498db;
+        }
+        
+        .quick-links {
+            list-style: none;
+        }
+        
+        .quick-links li {
+            margin-bottom: 12px;
+        }
+        
+        .quick-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        
+        .quick-links a:hover {
+            opacity: 1;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+        .navbar_parent {
+    height: 100px;
+    width: 98%;
+    background-color: #8FB78F;
+    margin-left: 18px;
+    margin-top: 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.options {
+    display: flex;
+    gap: 50px;
+    padding-right: 30px;
+    font-family:"Playfair Display" ;
+    font-size: 20px;
+  
+}
+
+.shaffrose_logo {
+    padding-left: 30px;
+}
+
+/* Mobile Menu Button - Hidden by default */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding-right: 30px;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <!-- navbar -->
+    <div class="navbar_parent">
+        <div class="shaffrose_logo">
+            <img src="./logo_white_text.png" alt="" style="height: 70px;width: 150px;">
+        </div>
+
+       
+        <div class="options">
+            <a href="index.html"> <p>home</p></a>
+         <a href="aboutus.html"> <p>about</p></a>
+         <a href="contacts.html"> <p>contact</p></a>
+             <p>cart</p>
+             <p>products</p>
+             <p>contact</p>
+         </div>
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>About Us</h1>
+            <p>Dedicated to excellence and innovation in everything we do</p>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Story</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Founded in 2015, Your Company began with a simple vision: to create innovative solutions that make a difference. What started as a small team of passionate individuals has grown into a dynamic organization dedicated to excellence and customer satisfaction.</p>
+                    <p>Through the years, we've maintained our commitment to quality while expanding our capabilities and reaching new markets. Our journey has been defined by creativity, perseverance, and a deep understanding of our industry's evolving landscape.</p>
+                    <p>Today, we're proud to serve clients across the globe, bringing their visions to life with the same enthusiasm and dedication that sparked our founding. Our team combines expertise with a forward-thinking approach, ensuring that we remain at the cutting edge of our field.</p>
+                </div>
+                <div class="about-image">
+                    <img src="/api/placeholder/600/400" alt="Our Team Working Together">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="values">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Values</h2>
+            </div>
+            <div class="values-container">
+                <div class="value-card">
+                    <div class="value-icon">★</div>
+                    <h3>Excellence</h3>
+                    <p>We strive for excellence in every project, focusing on quality and attention to detail to exceed expectations.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">♦</div>
+                    <h3>Innovation</h3>
+                    <p>We embrace creativity and forward-thinking to develop unique solutions that address complex challenges.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">♥</div>
+                    <h3>Integrity</h3>
+                    <p>We conduct business with honesty, transparency, and accountability, building trust with every interaction.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Leadership Team</h2>
+            </div>
+            <div class="team-container">
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="/api/placeholder/200/200" alt="Team Member">
+                    </div>
+                    <div class="member-info">
+                        <h3>Sarah Johnson</h3>
+                        <p>Chief Executive Officer</p>
+                        <div class="social-links">
+                            <a href="#"><span>in</span></a>
+                            <a href="#"><span>tw</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="/api/placeholder/200/200" alt="Team Member">
+                    </div>
+                    <div class="member-info">
+                        <h3>Michael Chen</h3>
+                        <p>Creative Director</p>
+                        <div class="social-links">
+                            <a href="#"><span>in</span></a>
+                            <a href="#"><span>tw</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="/api/placeholder/200/200" alt="Team Member">
+                    </div>
+                    <div class="member-info">
+                        <h3>Olivia Martinez</h3>
+                        <p>Head of Development</p>
+                        <div class="social-links">
+                            <a href="#"><span>in</span></a>
+                            <a href="#"><span>tw</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="/api/placeholder/200/200" alt="Team Member">
+                    </div>
+                    <div class="member-info">
+                        <h3>James Wilson</h3>
+                        <p>Marketing Director</p>
+                        <div class="social-links">
+                            <a href="#"><span>in</span></a>
+                            <a href="#"><span>tw</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Work Together?</h2>
+            <p>Let's turn your vision into reality. Our team is ready to help you achieve your goals with innovative solutions tailored to your needs.</p>
+            <a href="#" class="btn">Contact Us Today</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About Your Company</h3>
+                    <p>We're dedicated to delivering exceptional results through creativity, expertise, and a commitment to excellence in everything we do.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li><i>📍</i> 123 Business Street, City, Country</li>
+                        <li><i>📞</i> +1 (555) 123-4567</li>
+                        <li><i>✉️</i> info@yourcompany.com</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="quick-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Portfolio</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Your Company. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

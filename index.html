@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHAFFROSE</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .options a {
+            text-decoration: none;
+            color: black;
+        }
+        
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+         margin-top: 15px;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #d9bb9c;;
+        }
+        
+        /* Navbar Styles */
+        .navbar_parent {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #8fb78f;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+           margin-top: 10px;
+           width: 98%;
+           margin-left: 1%;
+        }
+
+        .top{
+            background-color: #d9bb9c;
+            height: 400px;
+        display: flex;
+ align-items: center;
+        justify-content: center;
+        }
+        
+        .options {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .options p {
+            margin: 0;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Product Grid Styles */
+        .type {
+            background-color: #ffddee;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .box {
+            width: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .box:hover {
+            transform: translateY(-5px);
+        }
+        
+        .box img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+        }
+        
+        .box div {
+            width: 100%;
+            height: 110px;
+            background-color: #d9bb9c;
+            padding-top: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .box h5 {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 20px;
+            text-align: center;
+            margin: 5px 0;
+        }
+        
+        .box h6 {
+            text-align: center;
+            font-size: larger;
+            margin: 5px 0;
+        }
+        
+        .box button {
+            margin-top: 5px;
+            width: 80%;
+        }
+        
+        /* Carousel Styles */
+        .carousel-item .card {
+            margin: 0 10px;
+        }
+        
+        .carousel-item .card img {
+            height: 300px;
+            object-fit: cover;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .box {
+                width: 280px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .box {
+                width: 45%;
+            }
+            
+            .options {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: #fff;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 30px;
+                gap: 30px;
+                transition: left 0.3s ease;
+            }
+            
+            .options.active {
+                left: 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .carousel-item .card img {
+                height: 250px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .box {
+                width: 100%;
+                max-width: 350px;
+            }
+            
+            .carousel-item .row {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .carousel-item .col-md-4 {
+                width: 100%;
+                max-width: 350px;
+                margin-bottom: 20px;
+            }
+            
+            .carousel-item .card img {
+                height: 300px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .shaffrose_logo img {
+                height: 50px;
+                width: 120px;
+            }
+            
+            .box img {
+                height: 280px;
+            }
+            
+            .carousel-item .card img {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+
+<body class="parent">
+    <!-- navbar -->
+    <div class="navbar_parent">
+        <div class="shaffrose_logo">
+            <img src="./logo_white_text.png" alt="" style="height: 70px;width: 150px;">
+        </div>
+
+        <div class="options">
+           <a href="index.html"> <p>home</p></a>
+        <a href="aboutus.html"> <p>about</p></a>
+        <a href="contacts.html"> <p>contact</p></a>
+            <p>cart</p>
+            <p>products</p>
+            <p>contact</p>
+        </div>
+
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+
+    <div class="page1">
+        <!-- moving background -->
+        <div class="top" style="height: 500px;">
+            
+            <div class="container mt-5">
+                <div id="multiCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <img src="./mv5.jpg" style="height: 415px;">
+                                       
+                                       
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <img src="./mv3.jpg" class="card-img-top" alt="Item 2" style="height: 415px;">
+                                      
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <img src="./bc3.jpg" class="card-img-top" alt="Item 3" style="height: 415px;">
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <img src="./mv7.jpg" class="card-img-top" alt="Item 4" style="height: 415px;">
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <img src="./mv1.jpg" class="card-img-top" alt="Item 5" style="height: 415px;">
+                                       
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <img src="./mv6.jpg" class="card-img-top" alt="Item 6" style="height: 415px;">
+                                      
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <img src="./mv8.jpg" class="card-img-top" alt="Item 4" style="height: 415px;">
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <img src="./mv1.jpg" class="card-img-top" alt="Item 5" style="height: 415px;">
+                                       
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <img src="./mv9.jpg" class="card-img-top" alt="Item 6" style="height: 415px;">
+                                      
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#multiCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#multiCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        
+           
+        </div>
+        <div class="bottom">
+            <div class="type">
+                <div class="box"> <img src="./pic2.jpg" alt=""
+                        style="height: 320px;width: 300px; border-top-right-radius: 10px;border-top-left-radius: 10px;">
+                    <div
+                        style="width: 300px;height:110px;background-color:#d9bb9c;  border-bottom-right-radius:10px;border-bottom-left-radius: 10px;padding-top: 5px; display: flex;flex-direction: column;">
+                        <h5
+                            style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;font-size: 20px;text-align: center;">
+                            FAIRNESS NIGHT CREAM</h5>
+
+                        <h6 style="text-align: center;font-size: larger; ">₹360.00</h6>
+                        <button type="button" class="btn btn-success">Add to Cart</button>
+
+                    </div>
+                </div>
+                <div class="box"> <img src="./pic3.jpg" alt=""
+                        style="height: 320px;width: 300px; border-top-right-radius: 10px;border-top-left-radius: 10px;">
+                    <div
+                        style="width: 300px;height:110px;background-color:#d9bb9c;  border-bottom-right-radius:10px;border-bottom-left-radius: 10px;padding-top: 5px; display: flex;flex-direction: column;">
+                        <h5
+                            style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;font-size: 20px;text-align: center;">
+                            ALOE VERA HAIR GEL</h5>
+
+                        <h6 style="text-align: center;font-size: larger; ">₹374.00</h6>
+                        <button type="button" class="btn btn-success">Add to Cart</button>
+
+                    </div>
+                </div>
+                <div class="box"> <img src="./pic4.jpg" alt=""
+                        style="height: 320px;width: 300px; border-top-right-radius: 10px;border-top-left-radius: 10px;">
+                    <div
+                        style="width: 300px;height:110px;background-color:#d9bb9c;  border-bottom-right-radius:10px;border-bottom-left-radius: 10px;padding-top: 5px; display: flex;flex-direction: column;">
+                        <h5
+                            style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;font-size: 20px;text-align: center;">
+                            BEETROOT LIP BALM</h5>
+
+                        <h6 style="text-align: center;font-size: larger; ">₹165.00</h6>
+                        <button type="button" class="btn btn-success">add to cart</button>
+
+                    </div>
+                </div>
+                <div class="box"> <img src="./pic6.jpg" alt=""
+                        style="height: 320px;width: 300px; border-top-right-radius: 10px;border-top-left-radius: 10px;">
+                    <div
+                        style="width: 300px;height:110px;background-color:#d9bb9c;  border-bottom-right-radius:10px;border-bottom-left-radius: 10px;padding-top: 5px; display: flex;flex-direction: column;">
+                        <h5
+                            style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;font-size: 20px;text-align: center;">
+                            ALOEVERA SHAMPOO</h5>
+
+                        <h6 style="text-align: center;font-size: larger; ">₹232.00</h6>
+                        <button type="button" class="btn btn-success">add to cart</button>
+
+                    </div>
+                </div>
+                <div class="box"> <img src="./pic7.jpg" alt=""
+                        style="height: 320px;width: 300px; border-top-right-radius: 10px;border-top-left-radius: 10px;">
+                    <div
+                        style="width: 300px;height:110px;background-color:#d9bb9c;  border-bottom-right-radius:10px;border-bottom-left-radius: 10px;padding-top: 5px; display: flex;flex-direction: column;">
+                        <h5
+                            style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;font-size: 20px;text-align: center;">
+                            STRAWBLIPS SCRUB</h5>
+
+                        <h6 style="text-align: center;font-size: larger; ">₹186.00</h6>
+                        <button type="button" class="btn btn-success">add to cart</button>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="type">
+                <div class="box"> <img src="./pic8.jpg" alt=""
+                        style="height: 320px;width: 300px; border-top-right-radius: 10px;border-top-left-radius: 10px;">
+                    <div
+                        style="width: 300px;height:110px;background-color:#d9bb9c;  border-bottom-right-radius:10px;border-bottom-left-radius: 10px;padding-top: 5px; display: flex;flex-direction: column;">
+                        <h5
+                            style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;font-size: 20px;text-align: center;">
+                            CHARCOAL FACE WASH</h5>
+
+                        <h6 style="text-align: center;font-size: larger; ">₹149.00</h6>
+                        <button type="button" class="btn btn-success">add to cart</button>
+
+                    </div>
+                </div>
+                <div class="box"> <img src="./pic9.jpg" alt=""
+                        style="height: 320px;width: 300px; border-top-right-radius: 10px;border-top-left-radius: 10px;">
+                    <div
+                        style="width: 300px;height:110px;background-color:#d9bb9c;  border-bottom-right-radius:10px;border-bottom-left-radius: 10px;padding-top: 5px; display: flex;flex-direction: column;">
+                        <h5
+                            style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;font-size: 20px;text-align: center;">
+                            BEETROOT FACEWASH</h5>
+
+                        <h6 style="text-align: center;font-size: larger; ">₹149.00</h6>
+                        <button type="button" class="btn btn-success">add to cart</button>
+
+                    </div>
+                </div>
+                <div class="box"> <img src="./pic10.jpg" alt=""
+                        style="height: 320px;width: 300px; border-top-right-radius: 10px;border-top-left-radius: 10px;">
+                    <div
+                        style="width: 300px;height:110px;background-color:#d9bb9c;  border-bottom-right-radius:10px;border-bottom-left-radius: 10px;padding-top: 5px; display: flex;flex-direction: column;">
+                        <h5
+                            style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;font-size: 20px;text-align: center;">
+                            ALOEVERA FACEWASH</h5>
+
+                        <h6 style="text-align: center;font-size: larger; ">₹149.00</h6>
+                        <button type="button" class="btn btn-success">add to cart</button>
+
+                    </div>
+                </div>
+                <div class="box"> <img src="./pic11.jpg" alt=""
+                        style="height: 320px;width: 300px; border-top-right-radius: 10px;border-top-left-radius: 10px;">
+                    <div
+                        style="width: 300px;height:110px;background-color:#d9bb9c;  border-bottom-right-radius:10px;border-bottom-left-radius: 10px;padding-top: 5px; display: flex;flex-direction: column;">
+                        <h5
+                            style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;font-size: 20px;text-align: center;">
+                            UNDER EYE GEL</h5>
+
+                        <h6 style="text-align: center;font-size: larger; ">₹210.00</h6>
+                        <button type="button" class="btn btn-success">add to cart</button>
+
+                    </div>
+                </div>
+                <div class="box"> <img src="./pic12.jpg" alt=""
+                        style="height: 320px;width: 300px; border-top-right-radius: 10px;border-top-left-radius: 10px;">
+                    <div
+                        style="width: 300px;height:110px;background-color:#d9bb9c;  border-bottom-right-radius:10px;border-bottom-left-radius: 10px;padding-top: 5px; display: flex;flex-direction: column;">
+                        <h5
+                            style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;font-size: 20px;text-align: center;">
+                            BEETROOT FACE GEL</h5>
+
+                        <h6 style="text-align: center;font-size: larger; ">₹270.00</h6>
+                        <button type="button" class="btn btn-success">add to cart</button>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="type">
+                <div class="box"> <img src="./pic13.jpg" alt=""
+                        style="height: 320px;width: 300px; border-top-right-radius: 10px;border-top-left-radius: 10px;">
+                    <div
+                        style="width: 300px;height:110px;background-color:#d9bb9c;  border-bottom-right-radius:10px;border-bottom-left-radius: 10px;padding-top: 5px; display: flex;flex-direction: column;">
+                        <h5
+                            style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;font-size: 20px;text-align: center;">
+                            MOISTRISER LOTION</h5>
+
+                        <h6 style="text-align: center;font-size: larger; ">₹374.00</h6>
+                        <button type="button" class="btn btn-success">add to cart</button>
+
+                    </div>
+                </div>
+                <div class="box"> <img src="./pic14.jpg" alt=""
+                        style="height: 320px;width: 300px; border-top-right-radius: 10px;border-top-left-radius: 10px;">
+                    <div
+                        style="width: 300px;height:110px;background-color:#d9bb9c;  border-bottom-right-radius:10px;border-bottom-left-radius: 10px;padding-top: 5px; display: flex;flex-direction: column;">
+                        <h5
+                            style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;font-size: 20px;text-align: center;">
+                            ROSE WATER</h5>
+
+                        <h6 style="text-align: center;font-size: larger; ">₹186.00 <del>₹249.00</del> </h6>
+                        <button type="button" class="btn btn-success">add to cart</button>
+
+                    </div>
+                </div>
+                <div class="box"> <img src="./pic15.jpg" alt=""
+                        style="height: 320px;width: 300px; border-top-right-radius: 10px;border-top-left-radius: 10px;">
+                    <div
+                        style="width: 300px;height:110px;background-color:#d9bb9c;  border-bottom-right-radius:10px;border-bottom-left-radius: 10px;padding-top: 5px; display: flex;flex-direction: column;">
+                        <h5
+                            style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;font-size: 20px;text-align: center;">
+                            ALOEVERA FACEWASH</h5>
+
+                        <h6 style="text-align: center;font-size: larger; ">₹149.00</h6>
+                        <button type="button" class="btn btn-success">add to cart</button>
+
+                    </div>
+                </div>
+                <div class="box"> <img src="./pic19.jpg" alt=""
+                        style="height: 320px;width: 300px; border-top-right-radius: 10px;border-top-left-radius: 10px;">
+                    <div
+                        style="width: 300px;height:110px;background-color:#d9bb9c;  border-bottom-right-radius:10px;border-bottom-left-radius: 10px;padding-top: 5px; display: flex;flex-direction: column;">
+                        <h5
+                            style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;font-size: 20px;text-align: center;">
+                            UNDER EYE GEL</h5>
+
+                        <h6 style="text-align: center;font-size: larger; ">₹210.00</h6>
+                        <button type="button" class="btn btn-success">add to cart</button>
+
+                    </div>
+                </div>
+                <div class="box"> <img src="./pic18.jpg" alt=""
+                        style="height: 320px;width: 300px; border-top-right-radius: 10px;border-top-left-radius: 10px;">
+                    <div
+                        style="width: 300px;height:110px;background-color:#d9bb9c;  border-bottom-right-radius:10px;border-bottom-left-radius: 10px;padding-top: 5px; display: flex;flex-direction: column;">
+                        <h5
+                            style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;font-size: 20px;text-align: center;">
+                            STRAWBLIPS SCRUB</h5>
+
+                        <h6 style="text-align: center;font-size: larger; ">₹186.00</h6>
+                        <button type="button" class="btn btn-success">add to cart</button>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const menuOptions = document.querySelector('.options');
+
+            menuBtn.addEventListener('click', function () {
+                menuOptions.classList.toggle('active');
+
+                // Change icon between bars and times
+                const icon = this.querySelector('i');
+                if (menuOptions.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+
+            // Close menu when clicking on a link (optional)
+            const menuLinks = document.querySelectorAll('.options p');
+            menuLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    menuOptions.classList.remove('active');
+                    const icon = menuBtn.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                });
+            });
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,128 @@
+
+.navbar_parent {
+    height: 100px;
+    width: 98%;
+    background-color: #8FB78F;
+    margin-left: 18px;
+    margin-top: 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.options {
+    display: flex;
+    gap: 50px;
+    padding-right: 30px;
+    font-family:"Playfair Display" ;
+    font-size: 20px;
+  
+}
+
+.shaffrose_logo {
+    padding-left: 30px;
+}
+
+/* Mobile Menu Button - Hidden by default */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding-right: 30px;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .options {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar_parent {
+        height: 80px;
+    }
+    
+    .options {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #8FB78F;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        padding: 20px 0;
+        border-radius: 0 0 10px 10px;
+        display: none; /* Hidden by default */
+        z-index: 100;
+    }
+    
+    .options.active {
+        display: flex;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+    }
+    
+    .shaffrose_logo img {
+        height: 60px;
+        width: 130px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar_parent {
+        margin-left: 10px;
+        width: calc(100% - 20px);
+    }
+    
+    .shaffrose_logo {
+        padding-left: 15px;
+    }
+    
+    .mobile-menu-btn {
+        padding-right: 15px;
+    }
+}
+
+
+.parent{
+    width: 100%;
+    height: 1200px;
+    background-color:#dec3a6;
+}
+.top{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.bottom{ width:100%;
+    height: 1800px;
+    background-color:#FDE;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-top: 40px;
+  padding-left: 100px;
+}
+
+.box{
+    height: 430px;
+    width: 300px;
+    background-color: #fff;
+    border-radius: 10px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.type{
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
