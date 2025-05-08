@@ -23,29 +23,31 @@
             background-color: #d9bb9c;;
         }
         
-        /* Navbar Styles */
         .navbar_parent {
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-            background-color: #8fb78f;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-           margin-top: 10px;
-           width: 98%;
-           margin-left: 1%;
-          
-        }
-
-        .top{
-            background-color: #d9bb9c;
-            padding-bottom: 50px;
-            height: 400px;
-        display: flex;
- align-items: center;
-        justify-content: center;
-        }
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #8fb78f;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    width: 98%;
+    margin-left: 1%;
+    border-radius: 20px;
+}
+        
+.top {
+    background-color: #d9bb9c;
+    padding-bottom: 50px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px; /* Add some space below the sticky navbar */
+}
         
         .options {
             display: flex;
@@ -144,30 +146,54 @@
             .box {
                 width: 45%;
             }
-            
-            .options {
-                position: fixed;
-                top: 80px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 80px);
-                background-color: #fff;
-                flex-direction: column;
-                align-items: center;
-                justify-content: flex-start;
-                padding-top: 30px;
-                gap: 30px;
-                transition: left 0.3s ease;
-            }
-            
-            .options.active {
-                left: 0;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-          
+            @media (max-width: 992px) {
+    .options {
+        position: fixed;
+        top: 80px; /* Match this with your navbar height */
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background-color: #fff;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 30px;
+        gap: 30px;
+        transition: left 0.3s ease;
+        z-index: 999;
+    }
+    
+    .options.active {
+        left: 0;
+    }
+}
+
+@media (max-width: 992px) {
+    .options {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background-color: #fff;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 30px;
+        gap: 30px;
+        transition: left 0.3s ease;
+        z-index: 999; /* Add this line to ensure menu appears above carousel */
+    }
+    
+    .options.active {
+        left: 0;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+        z-index: 1001; /* Ensure the button stays above the menu */
+    }
+}
         }
         
         @media (max-width: 768px) {
